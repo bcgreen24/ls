@@ -18,16 +18,18 @@ fn main() {
                 let datetime: DateTime<Utc> = system_time.into();
                 let str_filesize = bytes_to_units(filesize);
                 if path.is_dir() {
-                    println!("{:12}  {:12}  { }", datetime.format("%m/%d/%Y %T"), "<dir>", path.file_name().unwrap().to_string_lossy().blue());
+                    println!("{:12}  {:12}  { }", datetime.format("%m/%d/%Y %T"),
+                             "<dir>",
+                             path.file_name().unwrap().to_string_lossy().blue());
                 } else {
-                    println!("{:12}  {:12}  { }", datetime.format("%m/%d/%Y %T"), str_filesize, path.file_name().unwrap().to_string_lossy());
+                    println!("{:12}  {:12}  { }", datetime.format("%m/%d/%Y %T"),
+                             str_filesize,
+                             path.file_name().unwrap().to_string_lossy());
                 }
-
             },
             Err(e) => println!("{:?}", e),
         }
     }
-
 }
 
 fn bytes_to_units(bytes: u64) -> Box<str> {
