@@ -33,7 +33,7 @@ fn main() {
                         }
                     }
                     Err(e) => {
-                        println!("{}. File: {}", e, "");
+                        println!("{}. File: {}", e, path.to_string_lossy());
                     }
                 }
             }
